@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>今日のひとこと</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='static/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='static/button.css'>
+</head>
+<body>
+
+    <div>
+        <div id="button_div">
+            <a href="javascript:begin()" class="btn btn--orange">今日のひとこと</a>
+        </div>
+        <div id="loading_div">
+            <img src="static/images/loading.png" class="purun">
+            <div id="progressbar">
+                <span id="loading"></span>
+            </div>
+        </div>
+        <img src="" id="image" class="center">
+    </div>
+
+<script>
+    files = [
+        'test.png',
+    ]
+
+    const target = document.querySelector('#image');
+    const url = 'static/test_images/kotoutaya/' + files[Math.floor(Math.random()*files.length)];
+    target.src = url;
+
+    document.getElementById('loading_div').style.display = 'none';
+
+    function begin() {
+        document.getElementById('button_div').style.display = 'none';
+        document.getElementById('loading_div').style.display = 'block';
+        setTimeout(showImage, 5000);
+    }
+    function showImage() {
+        document.getElementById('loading_div').style.display = 'none';
+        document.getElementById('image').style.display = 'block';
+        document.getElementById('image').classList.add("active");
+    }
+</script>
+</body>
+</html>
+
