@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>今日のひとこと</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='static/main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='static/button.css'>
+</head>
+<body>
+
+    <div>
+        <div id="button_div">
+            <a href="javascript:begin()" class="btn btn--orange">今日のひとこと</a>
+        </div>
+        <div id="loading_div">
+            <img src="static/images/loading.png" class="purun">
+            <div id="progressbar">
+                <span id="loading"></span>
+            </div>
+        </div>
+        <img src="" id="image" class="center">
+    </div>
+
+<script>
+    files = [
+        '493702885671436530.jpg', 
+        '493702885721243731.jpg', 
+        '493702885956387045.jpg', 
+        '493702886275416434.jpg', 
+        '493702886359040404.jpg', 
+        '493702886526550567.jpg', 
+        '493702886745178497.jpg', 
+        '493702886795772058.jpg', 
+        '493702886879133767.jpg', 
+        '493702886996836357.jpg', 
+        '493702887248232860.jpg', 
+        '493702887567261974.jpg', 
+        '493702887651147841.jpg', 
+        '493702887735034456.jpg', 
+        '493702888003207318.jpg', 
+        '493702888103870789.jpg', 
+        '493702888205058471.jpg', 
+        '493702888540078213.jpg', 
+        '493702888691597335.jpg', 
+        '493702888809038051.jpg', 
+        '493702889194127606.jpg', 
+        '493702889278537761.jpg', 
+        '493702889530196054.jpg', 
+        '493702889765076998.jpg', 
+        '493702890016735797.jpg', 
+        '493702890050027862.jpg', 
+        '493702890520051969.jpg', 
+    ]
+
+    const target = document.querySelector('#image');
+    const url = 'static/images/kotoutaya/' + files[Math.floor(Math.random()*files.length)];
+    target.src = url;
+
+    document.getElementById('loading_div').style.display = 'none';
+
+    function begin() {
+        document.getElementById('button_div').style.display = 'none';
+        document.getElementById('loading_div').style.display = 'block';
+        setTimeout(showImage, 5000);
+    }
+    function showImage() {
+        document.getElementById('loading_div').style.display = 'none';
+        document.getElementById('image').style.display = 'block';
+        document.getElementById('image').classList.add("active");
+    }
+</script>
+</body>
+</html>
+
