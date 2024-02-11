@@ -21,78 +21,114 @@
             </div>
         </div>
         <img src="" id="image" class="center">
+        <div id="post_buton_div">
+            <a id="post_button" class="twitter-share-button" data-size="large" href="">Tweet</a>
+            <!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+        </div>
     </div>
 
 <script>
     files = [
-        '02ADEDD7DFF9777A90A8EC3DCAF0D64DD027DB7A.jpg',
-        '167AA9C02C28D80D809C69A0E97BD35965E7A7FD.jpg',
-        '202A3C35AE52E462B8DDB3C884C2581A2F4A16AB.jpg',
-        '279057110C3DCF2A83793E722E4538A70359F069.jpg',
-        '32700BEADDE56623777CA7FBBB61222943F99354.jpg',
-        '3E42AB1ACBCE10904B3A7A53062ABD99A53FEDF3.jpg',
-        '41597BBF49B420B61443F93522B34CE1816AFFA3.jpg',
-        '43446323E8B9AD646756CE7898AE9E627C8B722A.jpg',
-        '493702885671436530.jpg',
-        '493702885721243731.jpg',
-        '493702885956387045.jpg',
-        '493702886275416434.jpg',
-        '493702886359040404.jpg',
-        '493702886526550567.jpg',
-        '493702886745178497.jpg',
-        '493702886795772058.jpg',
-        '493702886879133767.jpg',
-        '493702886996836357.jpg',
-        '493702887248232860.jpg',
-        '493702887567261974.jpg',
-        '493702887651147841.jpg',
-        '493702887735034456.jpg',
-        '493702888003207318.jpg',
-        '493702888103870789.jpg',
-        '493702888205058471.jpg',
-        '493702888540078213.jpg',
-        '493702888691597335.jpg',
-        '493702888809038051.jpg',
-        '493702889194127606.jpg',
-        '493702889278537761.jpg',
-        '493702889530196054.jpg',
-        '493702889765076998.jpg',
-        '493702890016735797.jpg',
-        '493702890050027862.jpg',
-        '493702890520051969.jpg',
-        '522E4B9CA3DDE8F9683A499AF273E7FAC4376DE1.jpg',
-        '5E580E2A1353DB026B95B2912DD41AA022F76925.jpg',
-        '6312EF3C2E30AD36145D08DE7C4D71087820CF52.jpg',
-        '77786665A012F2D6AEFFD8578766CB36E8A2F54B.jpg',
-        '821DFCE40C42C960B7259836A7BF242DA1EA35D9.jpg',
-        '97FF727EE05E0A4356C9915D6C396536CF16E007.jpg',
-        '9A6C445D843886A0BFDFBF56CE9084AFCBC835A4.jpg',
-        'A0FAA60AED18BFA1B662CAE3B018F01D0EF7C8CC.jpg',
-        'A327303527FBD9B59CDB1DB90C472B7F957A15E0.jpg',
-        'B3019DCD1067E6F4B7695ED2A1065C7DCF02CEEC.jpg',
-        'B4B163984451EFF828DBBAED3AEA6C91AACE5E91.jpg',
-        'C2F8145BC66DB6CE2D133015099AE9963A10B0EF.jpg',
-        'E0D34C564756260EEFAEFE982BC9CE583093C92D.jpg',
-        'EDD80EABD8119083672569F8A46C8698ABB6F23B.jpg',
-        'EECA9986FC8C572D04CC7BF1FFF01082551B75FD.jpg',
-        'F15543B3DD845F976DCBBCC4E43EF0F2CAFB58C9.jpg',
-        'F75C320AA58A3FBEBCC5501AE47454E5031788A4.jpg',
-        'FACDBE5ABDD97B58ED6DF29856D08BD6A391426C.jpg',
+        '02ADEDD7DFF9777A90A8EC3DCAF0D64DD027DB7A',
+        '167AA9C02C28D80D809C69A0E97BD35965E7A7FD',
+        '202A3C35AE52E462B8DDB3C884C2581A2F4A16AB',
+        '279057110C3DCF2A83793E722E4538A70359F069',
+        '32700BEADDE56623777CA7FBBB61222943F99354',
+        '3E42AB1ACBCE10904B3A7A53062ABD99A53FEDF3',
+        '41597BBF49B420B61443F93522B34CE1816AFFA3',
+        '43446323E8B9AD646756CE7898AE9E627C8B722A',
+        '493702885671436530',
+        '493702885721243731',
+        '493702885956387045',
+        '493702886275416434',
+        '493702886359040404',
+        '493702886526550567',
+        '493702886745178497',
+        '493702886795772058',
+        '493702886879133767',
+        '493702886996836357',
+        '493702887248232860',
+        '493702887567261974',
+        '493702887651147841',
+        '493702887735034456',
+        '493702888003207318',
+        '493702888103870789',
+        '493702888205058471',
+        '493702888540078213',
+        '493702888691597335',
+        '493702888809038051',
+        '493702889194127606',
+        '493702889278537761',
+        '493702889530196054',
+        '493702889765076998',
+        '493702890016735797',
+        '493702890050027862',
+        '493702890520051969',
+        '522E4B9CA3DDE8F9683A499AF273E7FAC4376DE1',
+        '5E580E2A1353DB026B95B2912DD41AA022F76925',
+        '6312EF3C2E30AD36145D08DE7C4D71087820CF52',
+        '77786665A012F2D6AEFFD8578766CB36E8A2F54B',
+        '821DFCE40C42C960B7259836A7BF242DA1EA35D9',
+        '97FF727EE05E0A4356C9915D6C396536CF16E007',
+        '9A6C445D843886A0BFDFBF56CE9084AFCBC835A4',
+        'A0FAA60AED18BFA1B662CAE3B018F01D0EF7C8CC',
+        'A327303527FBD9B59CDB1DB90C472B7F957A15E0',
+        'B3019DCD1067E6F4B7695ED2A1065C7DCF02CEEC',
+        'B4B163984451EFF828DBBAED3AEA6C91AACE5E91',
+        'C2F8145BC66DB6CE2D133015099AE9963A10B0EF',
+        'E0D34C564756260EEFAEFE982BC9CE583093C92D',
+        'EDD80EABD8119083672569F8A46C8698ABB6F23B',
+        'EECA9986FC8C572D04CC7BF1FFF01082551B75FD',
+        'F15543B3DD845F976DCBBCC4E43EF0F2CAFB58C9',
+        'F75C320AA58A3FBEBCC5501AE47454E5031788A4',
+        'FACDBE5ABDD97B58ED6DF29856D08BD6A391426C',
     ]
 
+    // 表示画像をランダムに選択
+    const file_id = files[Math.floor(Math.random()*files.length)];
+
+    // 表示画像を設定する
     const target = document.querySelector('#image');
-    const url = 'static/images/kotoutaya/' + files[Math.floor(Math.random()*files.length)];
+    const url = 'static/images/kotoutaya/' + file_id + '.jpg';
     target.src = url;
 
+    // postボタンの設定
+    const elements = [
+        ['url', 'https://siteinfo.azurewebsites.net/kotouta/' + file_id],
+        ['text', '今日のひとこと'],
+        ['hashtags', '今日のひとこと,ことうた屋だいぞう'],
+        ['via', 'daizo77'],
+    ];
+    const post_button_value = 'https://twitter.com/intent/tweet?' + (Array.from(elements, (element) => element.join('='))).join('&');
+    const post_button = document.getElementById('post_button');
+    post_button.attributes['href'].value = post_button_value;
+
+    // ローディング表示を非表示にする
     document.getElementById('loading_div').style.display = 'none';
 
+    // poatボタンを非表示にする
+    document.getElementById('post_buton_div').style.display = 'none';
+
+    // 読み込み中画像を表示させる
     function begin() {
         document.getElementById('button_div').style.display = 'none';
         document.getElementById('loading_div').style.display = 'block';
         setTimeout(showImage, 5000);
     }
+
+    // 今日のひとこと画像を表示させる
     function showImage() {
+
         document.getElementById('loading_div').style.display = 'none';
+
+        // postボタンの表示とスクリプトの動的追加
+        document.getElementById('post_buton_div').style.display = 'block';
+        var script = document.createElement( 'script');
+        script.type = 'text/javascript';
+        script.src = 'https://platform.twitter.com/widgets.js';
+        var firstScript = document.getElementsByTagName( 'script' )[ 0 ];
+        firstScript.parentNode.insertBefore( script, firstScript );
+
         document.getElementById('image').style.display = 'block';
         document.getElementById('image').classList.add("active");
     }
