@@ -7,6 +7,10 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='static/main.css'>
     <link rel='stylesheet' type='text/css' media='screen' href='static/button.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='static/reading.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=New+Tegomin&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -24,6 +28,11 @@
         <div id="post_buton_div">
             <a id="post_button" class="twitter-share-button" data-size="large" href="">Tweet</a>
             <!--<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+        </div>
+        <div id="div_center" class="new-tegomin-regular">
+        </div>
+        <div id="switch_div">
+            <a href="javascript:do_switch()" class="a_button" id="switch_div_text">占いを見る</a>
         </div>
     </div>
 
@@ -92,6 +101,15 @@
     const url = 'static/images/kotoutaya/' + file_id + '.jpg';
     target.src = url;
 
+    // 占い結果表示場所にactiveクラスを追加すうｒ
+    div_center = document.getElementById('div_center');
+    div_center.classList.add("active");
+    div_center.style.display = 'none';
+    content = "";
+
+    // 現在表示
+    current = 0;
+
     // postボタンの設定
     const elements = [
         ['url', 'https://siteinfo.azurewebsites.net/kotouta/' + file_id],
@@ -109,17 +127,41 @@
     // poatボタンを非表示にする
     document.getElementById('post_buton_div').style.display = 'none';
 
+    // 切り替えボタンを非表示にする
+    document.getElementById('switch_div').style.display = 'none';
+
     // 読み込み中画像を表示させる
     function begin() {
         document.getElementById('button_div').style.display = 'none';
         document.getElementById('loading_div').style.display = 'block';
-        setTimeout(showImage, 5000);
+
+        let url = "https://fortunereading.azurewebsites.net/result";
+        fetch(url, {"content" : "HOGE"})
+            .then(function(response) {
+                if (!response.ok) {
+                    content = "AIが寝ぼけているようです...";
+                    showReading(true);
+                }
+                return response.json();
+            })
+            .then(function(promise) {
+                content = promise.content;
+                showReading(true);
+            })
+            .catch(function(err) {
+                content = "AIが応答しません...";
+                showReading(true);
+            });
     }
 
     // 今日のひとこと画像を表示させる
     function showImage() {
+        const target = document.querySelector('#image');
+        if (target.classList.contains('blur')) {
+            target.classList.remove("blur");
+        }
 
-        document.getElementById('loading_div').style.display = 'none';
+        document.getElementById('div_center').style.display = 'none';
 
         // postボタンの表示とスクリプトの動的追加
         document.getElementById('post_buton_div').style.display = 'block';
@@ -131,6 +173,47 @@
 
         document.getElementById('image').style.display = 'block';
         document.getElementById('image').classList.add("active");
+    }
+
+    function showReading(flag) {
+
+        const target = document.querySelector('#image');
+        if (!target.classList.contains('blur')) {
+            target.classList.add("blur");
+        }
+
+        // poatボタンを非表示にする
+        document.getElementById('post_buton_div').style.display = 'none';
+
+        // 読み込み中を非表示にする
+        document.getElementById('loading_div').style.display = 'none';
+
+        div_center = document.getElementById('div_center');
+        div_center.style.display = 'block';
+        div_center.innerHTML = content;
+
+        if (flag) {
+            setTimeout(() => {
+                // 切り替えボタンを表示する
+                document.getElementById('switch_div').style.display = 'block';
+
+                showImage();
+            }, 5000);
+        }
+    }
+
+    function do_switch() {
+        
+        if (current == 0) {
+            current = 1;
+            document.getElementById('switch_div_text').innerHTML = "占いを隠す";
+            showReading(false);
+        }
+        else {
+            current = 0;
+            document.getElementById('switch_div_text').innerHTML = "占いを見る";
+            showImage();
+        }
     }
 </script>
 </body>
