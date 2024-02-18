@@ -8,7 +8,7 @@ body {
 
 #image {
     display: none;
-    opacity: 0;
+    opacity: 1;
 }
 #image.active {
     display: block;
@@ -16,10 +16,6 @@ body {
     animation-name: fadeIn;
     animation-fill-mode:forwards;
     animation-duration:2s;
-}
-#image.blur {
-    -ms-filter: blur(16px);
-    filter: blur(16px);
 }
 @keyframes fadeIn{
     0% {
@@ -29,6 +25,32 @@ body {
     100% {
         opacity: 1;
     }
+}
+#image.blur {
+    animation-name: BlurfadeIn;
+    animation-fill-mode:forwards;
+    animation-duration:2s;
+    opacity: 1;
+}
+@keyframes BlurfadeIn{
+    0% {
+        filter: blur(0px);
+    }
+
+    100% {
+        filter: blur(16px);
+    }
+}
+.loading_message {
+    text-align: center;
+    position: absolute;
+    width: 200px;
+    height: auto;
+    top: calc(50% - 200px);
+    left: calc(50% - 100px);
+    max-width: 100%;
+    max-height: 100%;
+    border: solid 1px black;
 }
 .center {
     position: absolute;
@@ -107,10 +129,10 @@ body {
 #button_div{
   text-align: center;
   position: absolute;
-  left: calc(50% - 250px);
-  top: calc(50% - 32px);
-  width: 500px;
-  height: 64px;
+  left: calc(50% - 175px);
+  top: calc(50% - 24px);
+  width: 350px;
+  height: 48px;
 }
 
 @keyframes load{
